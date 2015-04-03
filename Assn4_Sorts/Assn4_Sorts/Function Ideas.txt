@@ -1,0 +1,51 @@
+Assignment 4 Function Ideas
+
+//********************************************************************* 
+// FUNCTION: 		
+// DESCRIPTION: 	
+// INPUT: 
+//  Parameters: 	
+// OUTPUT: 
+//  Return value:
+//  Parameters: 
+// CALLS TO:
+// IMPLEMENTED BY: 	
+//**********************************************************************
+DisplayMainMenu()
+displays main menu to user
+
+GetSortingChoices()
+reads sorting choices from user and validates input
+
+GetSortTrials()
+gets trial number from user and validates input
+
+GenerateRandomArray()
+generates a random array with 100,000 values
+
+BubbleSort()
+performs a bubble sort
+
+InsertionSort()
+performs an insertion sort
+
+MergeSort()
+performs a merge sort
+
+QuickSort()
+performs a quicksort
+
+ValidateSort()
+validates that the sorting process completed successfully
+
+DisplayResults()
+Displays results of sorting algorithm to user 
+
+CalculateTime()
+calculates the length of time taken to perform sort
+
+DeallocateMemory()
+frees up memory used for arrays containing unique values
+
+
+
