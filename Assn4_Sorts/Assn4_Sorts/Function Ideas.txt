@@ -1,51 +1,199 @@
 Assignment 4 Function Ideas
 
 //********************************************************************* 
-// FUNCTION: 		
-// DESCRIPTION: 	
-// INPUT: 
-//  Parameters: 	
+// FUNCTION:        main()
+// DESCRIPTION:     declares initial variables and calls functions that will perform program operations
+// INPUT:
+//  Parameters: 	argc - count of command line arguments
+//                  argv - array containing command line arguments
 // OUTPUT: 
-//  Return value:
-//  Parameters: 
-// CALLS TO:
+//  Return value:   0 - successful program run
+// CALLS TO:        displayMainMenu()
+//                  getSortingChoices()
+//                  getSortTrials
+//                  generateArray()
+//                  fillRandomArray()
+//                  bubbleSort()
 // IMPLEMENTED BY: 	
 //**********************************************************************
-DisplayMainMenu()
-displays main menu to user
+int main(int argc, const char * argv[]) {
 
-GetSortingChoices()
-reads sorting choices from user and validates input
+return 0;
+}
 
-GetSortTrials()
-gets trial number from user and validates input
+//*********************************************************************
+// FUNCTION:        displayMainMenu()
+// DESCRIPTION:     displays the main menu and program instructions to user
+// IMPLEMENTED BY:
+//**********************************************************************
+void displayMainMenu() {
+    cout << "Main menu displayed" << endl;
+}
 
-GenerateRandomArray()
-generates a random array with 100,000 values
+//*********************************************************************
+// FUNCTION:        getSortingChoices()
+// DESCRIPTION:     reads two choices of sorting algorithms from user and validates that both sorting
+//                  options are valid
+// OUTPUT:
+//  Parameters:     sortChoice1 - first sorting algorithm choice by user
+//                  sortChoice2 - second sorting algorithm choice by user
+// IMPLEMENTED BY:
+//**********************************************************************
+void getSortingChoices(char &sortChoice1, char &sortChoice2) {
+    cout << "user selected " << sortChoice1 << " and " << sortChoice2;
+}
 
-BubbleSort()
-performs a bubble sort
+//*********************************************************************
+// FUNCTION:        getSortTrials()
+// DESCRIPTION:     Asks user how many sorting trials they would like and reads number, then validates number
+// OUTPUT:
+//  Return value:   sortTrials - validated number of trials entered by user
+// CALLS TO:
+// IMPLEMENTED BY:
+//**********************************************************************
+int getSortTrials() {
+    cout << "User selected " << sortTrials << " trials" << endl;
 
-InsertionSort()
-performs an insertion sort
+    return sortTrials;
+}
 
-MergeSort()
-performs a merge sort
+//*********************************************************************
+// FUNCTION:        generateArray()
+// DESCRIPTION:     allocates memory for a new array of variable sizes for integers
+// INPUT:
+//  Parameters: 	arraySize - length of desired array
+// OUTPUT:
+//  Return value:   newArray - pointer to allocated memory for array
+// IMPLEMENTED BY:
+//**********************************************************************
+int* generateArray(int arraySize) {
+    cout << "Generated new array with space for " << arraySize << endl;
 
-QuickSort()
-performs a quicksort
+    return newArray;
+}
 
-ValidateSort()
-validates that the sorting process completed successfully
+//*********************************************************************
+// FUNCTION:        fillRandomArray()
+// DESCRIPTION:     fills variable size array with random values
+// INPUT:
+//  Parameters:     newArray - pointer to array that needs to be filled with random values
+//                  arraySize - length of array
+// IMPLEMENTED BY:
+//**********************************************************************
+void fillRandomArray(int *newArray, int arraySize) {
+    cout << "Filled array with " << arraySize << " random values" << endl;
 
-DisplayResults()
-Displays results of sorting algorithm to user 
+}
 
-CalculateTime()
-calculates the length of time taken to perform sort
+//*********************************************************************
+// FUNCTION:        bubbleSort()
+// DESCRIPTION:     performs a bubble sort on a provided array
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// IMPLEMENTED BY:
+//**********************************************************************
+void bubbleSort(int *unsortedArray, int arraySize) {
+    cout << "Array has been sorted using a bubble sort" << endl;
 
-DeallocateMemory()
-frees up memory used for arrays containing unique values
+}
+
+//*********************************************************************
+// FUNCTION:        insertionSort()
+// DESCRIPTION:     performs an insertion sort on a provided array
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// IMPLEMENTED BY:
+//**********************************************************************
+void insertionSort(int *unsortedArray, int arraySize) {
+    cout << "Array has been sorted using an insertion sort" << endl;
+}
+
+//*********************************************************************
+// FUNCTION:        mergeSort()
+// DESCRIPTION:     performs a merge sort on a provided array
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// IMPLEMENTED BY:
+//**********************************************************************
+void mergeSort(int *unsortedArray, int arraySize) {
+    cout << "Array has been sorted using a merge sort" << endl;
+}
+
+//*********************************************************************
+// FUNCTION:        quickSort()
+// DESCRIPTION:     performs a quick sort on a provided array
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// IMPLEMENTED BY:
+//**********************************************************************
+void quickSort(int *unsortedArray, int arraySize) {
+    cout << "Array has been sorted using a quick sort" << endl;
+}
+
+//*********************************************************************
+// FUNCTION:        validateSort()
+// DESCRIPTION:     validates whether or not a sorting algorithm completed sorting process successfully
+// INPUT:
+//  Parameters:     unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// OUTPUT:
+//  Return value:   sortValidated - boolean for whether or not sort was successful
+// IMPLEMENTED BY:
+//**********************************************************************
+bool validateSort() {
+    cout << "Sorting process validation code: " << sortValidated << endl;
+
+    return sortValidated;
+}
+
+//*********************************************************************
+// FUNCTION:        displayResults()
+// DESCRIPTION:     displays results of sorting algorithms to user
+// INPUT:
+//  Parameters:     sortChoice1 - first sorting algorithm choice
+//                  sortChoice2 - second sorting algorithm choice
+//                  sortAverage1 - average time of first sorting algorithm
+//                  sortAverage2 - average time of second sorting algorithm
+// IMPLEMENTED BY:
+//**********************************************************************
+void displayResults(char sortChoice1, char sortChoice2, double sortAverage1, double sortAverage2) {
+    cout << "displayResults called with sort choices " << sortChoice1 << " and " << sortChoice2;
+    cout << " with averages " << sortAverage1 << " and " << sortAverage2 << endl;
+
+}
+
+//*********************************************************************
+// FUNCTION:        calculateTime()
+// DESCRIPTION:     calculates length of time that a sorting algorithm took to sort a list
+// INPUT:
+//  Parameters: 	startTime - starting time of sorting algorithm
+//                  endTime - ending time of sorting algorithm
+// OUTPUT:
+//  Return value:   runTime - running time for sorting algorithm
+// IMPLEMENTED BY:
+//**********************************************************************
+int calculateTime(int startTime, int endTime) {
+    cout << "calculateTime called with start time " << startTime << " and end time " << endTime << endl;
+}
+
+//*********************************************************************
+// FUNCTION:        deallocateMemory()
+// DESCRIPTION:     deallocates memory used for results arrays
+// INPUT:
+//  Parameters: 	deleteArray - pointer to array that needs to be deallocated
+// OUTPUT:
+//  Return value:   deleteArray - pointer to deallocated array, reassigned to NULL
+// IMPLEMENTED BY:
+//**********************************************************************
+int* deallocateMemory(int *deleteArray) {
+    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
+
+    return deleteArray;
+}
 
 
 
