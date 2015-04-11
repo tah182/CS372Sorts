@@ -14,7 +14,7 @@
 int* generateArray(int );
 void fillRandomArray(int *, int );
 int getRandInt();
-int getAvgTime(int , int );
+int getAvgTime(int *times, int numTests);
 void insertionSort(int *, int );
 bool validateSort(int *, int );
 

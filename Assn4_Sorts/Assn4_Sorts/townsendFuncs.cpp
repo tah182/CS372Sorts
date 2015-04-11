@@ -80,11 +80,17 @@ int getRandInt() {
 //  Return value:   runTime - running time for sorting algorithm
 // IMPLEMENTED BY:  Neil Townsend
 //**********************************************************************
-int getAvgTime(int startTime, int endTime) {
-    double avgTime;                         //average time taken to complete a sort
+int getAvgTime(int *times, int numTests) {
+    double avgTime = 0.00;                         //average time taken to complete a sort
+    
+    for(int timeCounter = 0; timeCounter < numTests; timeCounter++) {
+        avgTime += times[timeCounter];
+    }
+    
+    avgTime /= numTests;
     
     //*********DEBUG****************
-    cout << "calculateTime called with start time " << startTime << " and end time " << endTime << endl;
+    cout << "calculateTime called with average time: " << avgTime << endl;
     //******************************
 
     //returns average
