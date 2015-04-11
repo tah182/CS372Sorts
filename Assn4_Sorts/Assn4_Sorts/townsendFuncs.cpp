@@ -28,7 +28,7 @@ int* generateArray(int arraySize) {
     newArray = new (nothrow) int[arraySize];
 
     //*********DEBUG****************
-    cout << "Generated new array with space for " << arraySize << endl;
+    //cout << "Generated new array with space for " << arraySize << endl;
     //******************************
 
     //returns dynamically allocated array

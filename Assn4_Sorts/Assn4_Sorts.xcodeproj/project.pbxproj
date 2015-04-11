@@ -25,7 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D613D2BD1AD9C59B00876644 /* tatsumoto_Funcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tatsumoto_Funcs.h; sourceTree = "<group>"; };
+		D613D2BD1AD9C59B00876644 /* tatsumotoFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tatsumotoFuncs.h; sourceTree = "<group>"; };
 		D613D2BE1AD9C59B00876644 /* tatsumotoFuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tatsumotoFuncs.cpp; sourceTree = "<group>"; };
 		D623F0991ACE346C00338CCB /* Assn4_Sorts */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assn4_Sorts; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623F09C1ACE346C00338CCB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 				D6594B951AD0BBD30021AF56 /* Common.h */,
 				D6594B931AD0BBB70021AF56 /* townsendFuncs.h */,
 				D6594B921AD0BBB70021AF56 /* townsendFuncs.cpp */,
-				D613D2BD1AD9C59B00876644 /* tatsumoto_Funcs.h */,
+				D613D2BD1AD9C59B00876644 /* tatsumotoFuncs.h */,
 				D613D2BE1AD9C59B00876644 /* tatsumotoFuncs.cpp */,
 				D623F0A31ACE34BD00338CCB /* Function Ideas.txt */,
 			);

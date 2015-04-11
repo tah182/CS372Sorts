@@ -37,9 +37,7 @@
 		<Unit filename="tatsumotoFuncs.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="tatsumoto_Funcs.h">
-			<Option target="Debug" />
-		</Unit>
+		<Unit filename="tatsumotoFuncs.h" />
 		<Unit filename="townsendFuncs.cpp" />
 		<Unit filename="townsendFuncs.h" />
 		<Extensions>

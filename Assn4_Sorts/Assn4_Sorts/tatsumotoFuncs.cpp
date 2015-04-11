@@ -128,18 +128,18 @@ void displayRunResult(int option, double time) {
 // DESCRIPTION:     sorts an array using bubble sort algorithm
 // INPUT:
 //  Parameters:     sortArray - the array to sort
-//                  arrSize - the size of the array
+//                  left - UNUSED
+//                  right - the size of the array
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
 void bubbleSort(int unsortedArray[], int left, int right) {
     int sorted = 0;
-    int currentIndex = 0;
     int lastIndex = right - 1;
     while (sorted != 1) {
         sorted = 1;
-        currentIndex = 0;
+        int currentIndex = 0;
         while (currentIndex < lastIndex) {
-            if (unsortedArray[currentIndex] < unsortedArray[currentIndex + 1]) {
+            if (unsortedArray[currentIndex] > unsortedArray[currentIndex + 1]) {
                 int temp = unsortedArray[currentIndex];
                 unsortedArray[currentIndex] = unsortedArray[currentIndex + 1];
                 unsortedArray[currentIndex + 1] = temp;
@@ -147,7 +147,7 @@ void bubbleSort(int unsortedArray[], int left, int right) {
             }
             currentIndex++;
         }
-        lastIndex++;
+        lastIndex--;
     }
 }
 
@@ -221,21 +221,19 @@ void mergeSort(int unsortedArray[], int left, int right) {
 //		    sorting algorithms to test
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
-void loopControl(int *optionArray) {
-    int SIZE = 100000;
-    int *timeArray1 = generateArray(optionArray[2]);
+void loopControl(int *optionArray) {    int *timeArray1 = generateArray(optionArray[2]);
     int *timeArray2 = generateArray(optionArray[2]);
 
     for (int i = 0; i < optionArray[2]; i++) {
         // allocate memory needed for the sorting arrays
-        int* randArray = generateArray(SIZE);
-        int* sort1Copy = generateArray(SIZE);
-        int* sort2Copy = generateArray(SIZE);
+        int* randArray = generateArray(RANDOM_ARRAY_SIZE);
+        int* sort1Copy = generateArray(RANDOM_ARRAY_SIZE);
+        int* sort2Copy = generateArray(RANDOM_ARRAY_SIZE);
 
         // fill array with raundom numbers and copy to each array
-        fillRandomArray(randArray, SIZE);
-        copyArray(sort1Copy, randArray);
-        copyArray(sort2Copy, randArray);
+        fillRandomArray(randArray, RANDOM_ARRAY_SIZE);
+        copyArray(randArray, sort1Copy);
+        copyArray(randArray, sort2Copy);
 
         // get the time to sort each array
         timeArray1[i] = pickSort(optionArray[0], sort1Copy);
@@ -246,8 +244,8 @@ void loopControl(int *optionArray) {
         displayRunResult(optionArray[1], timeArray2[i]);
 
         // validate if correct
-        validateSort(sort1Copy, SIZE);
-        validateSort(sort2Copy, SIZE);
+        validateSort(sort1Copy, RANDOM_ARRAY_SIZE);
+        validateSort(sort2Copy, RANDOM_ARRAY_SIZE);
 
         // free the memory from the
         freeMemory(sort1Copy);
