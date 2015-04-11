@@ -13,7 +13,7 @@
 int getInputHelper(string display) {
     int input = 0;
     do {
-        cout << printout;
+        cout << display;
         string userInput = "";
         cin >> userInput;
         try {
@@ -21,7 +21,7 @@ int getInputHelper(string display) {
         } catch (exception &e) {
             input = 0;
         }
-    } while (input = 0);
+    } while (input == 0);
     return input;
 }
 
@@ -59,7 +59,7 @@ void getInput(int opts[]) {
             opts[1] = secondOpt;
             valid = 1;
         }
-    } while (valid = 0);
+    } while (valid == 0);
 
     printout = "\nHow many times should we sort? ";
     ops[2] = getInputHelper(printout);
