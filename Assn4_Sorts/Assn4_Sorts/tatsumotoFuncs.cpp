@@ -133,17 +133,17 @@ void displayRunResult(int option, double time) {
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
 void bubbleSort(int unsortedArray[], int left, int right) {
-    int sorted = 0;
+    bool sorted = false;
     int lastIndex = right - 1;
-    while (sorted != 1) {
-        sorted = 1;
+    while (!sorted) {
+        sorted = true;
         int currentIndex = 0;
         while (currentIndex < lastIndex) {
             if (unsortedArray[currentIndex] > unsortedArray[currentIndex + 1]) {
                 int temp = unsortedArray[currentIndex];
                 unsortedArray[currentIndex] = unsortedArray[currentIndex + 1];
                 unsortedArray[currentIndex + 1] = temp;
-                sorted = 0;
+                sorted = false;
             }
             currentIndex++;
         }
@@ -162,10 +162,9 @@ void bubbleSort(int unsortedArray[], int left, int right) {
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
 void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
-    int *tempArray = generateArray(100000);
-    for (int i = lowIndex; i < highIndex; i++) {
+    int *tempArray = generateArray(RANDOM_ARRAY_SIZE);
+    for (int i = lowIndex; i < highIndex; i++)
         tempArray[i] = unsortedArray[i];
-    }
 
     int left, right, temp;
     left = temp = lowIndex;
@@ -191,6 +190,7 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
         temp++;
         right++;
     }
+    freeMemory(tempArray);
 }
 
 
@@ -221,35 +221,41 @@ void mergeSort(int unsortedArray[], int left, int right) {
 //		    sorting algorithms to test
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
-void loopControl(int *optionArray) {    int *timeArray1 = generateArray(optionArray[2]);
+void loopControl(int *optionArray) {
+    int *timeArray1 = generateArray(optionArray[2]);
     int *timeArray2 = generateArray(optionArray[2]);
 
     for (int i = 0; i < optionArray[2]; i++) {
         // allocate memory needed for the sorting arrays
         int* randArray = generateArray(RANDOM_ARRAY_SIZE);
-        int* sort1Copy = generateArray(RANDOM_ARRAY_SIZE);
-        int* sort2Copy = generateArray(RANDOM_ARRAY_SIZE);
+        int* sortCopy = generateArray(RANDOM_ARRAY_SIZE);
 
         // fill array with raundom numbers and copy to each array
         fillRandomArray(randArray, RANDOM_ARRAY_SIZE);
-        copyArray(randArray, sort1Copy);
-        copyArray(randArray, sort2Copy);
+        
+        // run through each sort
+        for (int sortNum = 0; sortNum < 2; sortNum++) {
+            copyArray(randArray, sortCopy);
+        
+            // get the time to sort each array
+            // print out the individual run times
+            if (sortNum == 0) {
+                timeArray1[i] = pickSort(optionArray[sortNum], sortCopy);
+                displayRunResult(optionArray[sortNum], timeArray1[i]);
+            } else {
+                timeArray2[i] = pickSort(optionArray[sortNum], sortCopy);
+                displayRunResult(optionArray[sortNum], timeArray2[i]);
+            }
+            
+            for (int i = 0; i < RANDOM_ARRAY_SIZE; i++)
+                cout << sortCopy[i] << endl;
+        
+            // validate if correct
+            validateSort(sortCopy, RANDOM_ARRAY_SIZE);
 
-        // get the time to sort each array
-        timeArray1[i] = pickSort(optionArray[0], sort1Copy);
-        timeArray2[i] = pickSort(optionArray[1], sort2Copy);
-
-        // print out the individual run times
-        displayRunResult(optionArray[0], timeArray1[i]);
-        displayRunResult(optionArray[1], timeArray2[i]);
-
-        // validate if correct
-        validateSort(sort1Copy, RANDOM_ARRAY_SIZE);
-        validateSort(sort2Copy, RANDOM_ARRAY_SIZE);
-
-        // free the memory from the
-        freeMemory(sort1Copy);
-        freeMemory(sort2Copy);
+            // free the memory from the
+            freeMemory(sortCopy);
+        }
     }
 
     double avgTime1 = getAvgTime(timeArray1, optionArray[2]);

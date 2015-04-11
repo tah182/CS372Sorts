@@ -261,7 +261,7 @@ int* freeMemory(int *deleteArray) {
     delete deleteArray;
 
     //*********DEBUG****************
-    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
+//    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
     //******************************
 
     //reassigns pointer to NULL
