@@ -181,7 +181,7 @@ void quickSort(int *unsortedArray, int left, int right) {
 int findPartition(int *unsortedArray, int left, int right) {
     int wall,                            //partition to be used for array
         temp;                            //temp values used to exchange values
-
+    wall = left;
     //finds partition, exchanging values along the way
     while (left < right) {
         //moves left boundary up
@@ -287,10 +287,10 @@ int pickSort(int sortOption, int *sortArray) {
     int time,                                       //time taken to run the sorting algorithm
         startTime,                                  //starting time for algorithm
         endTime;                                    //ending time for algorithm
-    
+
     //records current clock time
     startTime = clock();
-    
+
     //selects appropriate sorting mechanism
     switch (sortOption) {
         case 1 : bubbleSort(sortArray, 0, RANDOM_ARRAY_SIZE);
@@ -304,18 +304,18 @@ int pickSort(int sortOption, int *sortArray) {
         default:
             break;
     }
-    
+
     //records ending time
     endTime = clock();
-    
-    
+
+
     //calculates time for algorithm
     time = endTime - startTime;
-    
+
     //*********DEBUG****************
     cout << "It took " << time << " clock cycles to sort the array." << endl;
     //******************************
-    
+
     //returns the time taken to run the sorting algorithm
     return time;
 }

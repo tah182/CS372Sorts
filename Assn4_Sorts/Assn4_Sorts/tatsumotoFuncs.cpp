@@ -64,9 +64,6 @@ void getInput(int opts[]) {
     printout = "\nHow many times should we sort? ";
     opts[2] = getInputHelper(printout);
 }
-    printout = "\nHow many times should we sort? ";
-    opts[2] = getInputHelper(printout);
-}
 
 
 //*********************************************************************
@@ -170,7 +167,7 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
     for (int i = lowIndex; i < highIndex; i++) {
         tempArray[i] = unsortedArray[i];
     }
-    
+
     int left, right, temp;
     left = temp = lowIndex;
     right = midIndex + 1;
@@ -227,8 +224,8 @@ void mergeSort(int unsortedArray[], int left, int right) {
 //**********************************************************************
 void loopControl(int *optionArray) {
     int SIZE = 100000;
-    int *timeArray1 = generateArray(2);
-    int *timeArray2 = generateArray(2);
+    int *timeArray1 = generateArray(optionArray[2]);
+    int *timeArray2 = generateArray(optionArray[2]);
 
     for (int i = 0; i < optionArray[2]; i++) {
         // allocate memory needed for the sorting arrays
@@ -250,7 +247,8 @@ void loopControl(int *optionArray) {
         displayRunResult(optionArray[1], timeArray2[i]);
 
         // validate if correct
-        validateSort(arrayCopy, SIZE);
+        validateSort(sort1Copy, SIZE);
+        validateSort(sort2Copy, SIZE);
 
         // free the memory from the
         freeMemory(sort1Copy);
