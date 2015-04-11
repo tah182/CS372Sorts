@@ -7,7 +7,7 @@
 //
 
 #include "Common.h"
-#include "tatsumoto_Funcs.h"
+#include "tatsumotoFuncs.cpp"
 
 int main(int argc, const char * argv[]) {
 

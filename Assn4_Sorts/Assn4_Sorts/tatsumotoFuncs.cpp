@@ -41,7 +41,7 @@ void getInput(int opts[]) {
     cout << "   4. Quick Sort" << endl;
     cout << "   5. Exit" << endl;
 
-    String printout = "Please pick two sorts (2 digit number): ";
+    string printout = "Please pick two sorts (2 digit number): ";
     int valid = 0;
     do {
         int input = getInputHelper(printout);
@@ -53,7 +53,7 @@ void getInput(int opts[]) {
             int firstOpt = input - secondOpt;
             if (firstOpt == 5 || secondOpt == 5) {
                 cout << "Exiting..." << endl;
-                system.exit(1);
+                exit(1);
             }
             opts[0] = firstOpt;
             opts[1] = secondOpt;
@@ -120,6 +120,7 @@ void displayRunResult(int option, double time) {
             sortType = "Quick Sort";
             break;
         default:
+            break;
     }
     cout << "Time for run on " + sortType + ": " << time << endl;
 }
@@ -135,7 +136,7 @@ void displayRunResult(int option, double time) {
 void bubbleSort(int unsortedArray[], int arrSize) {
     int sorted = 0;
     int currentIndex = 0;
-    int lastIndex = arrSize - 1
+    int lastIndex = arrSize - 1;
     while (sorted != 1) {
         sorted = 1;
         currentIndex = 0;
@@ -163,8 +164,8 @@ void bubbleSort(int unsortedArray[], int arrSize) {
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
 void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
-    int tempArray = generateArray(100000);
-    for (int i = lowIndex, i < highIndex)
+    int *tempArray = generateArray(100000);
+    for (int i = lowIndex; i < highIndex; i++)
         tempArray[i] = unsortedArray[i];
 
     int left, right, temp;
@@ -172,7 +173,7 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
     right = midIndex + 1;
 
     while (left <= midIndex && right <= highIndex) {
-        if (temp[left] <= temp[right]) {
+        if (tempArray[left] <= tempArray[right]) {
             unsortedArray[temp] = tempArray[left];
             left++;
         } else {
@@ -206,9 +207,9 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
 void mergeSort(int unsortedArray[], int left, int right) {
     if (left < right) {
         int middleIndex = (right + left) / 2;
-        mergeSort(unsortedArray[], left, middleIndex);
-        mergeSort(unsortedArray[], middleIndex + 1, right);
-        mergeA(unsortedArray[], left, middleIndex, right);
+        mergeSort(unsortedArray, left, middleIndex);
+        mergeSort(unsortedArray, middleIndex + 1, right);
+        mergeA(unsortedArray, left, middleIndex, right);
     }
 }
 
@@ -222,9 +223,9 @@ void mergeSort(int unsortedArray[], int left, int right) {
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
 void loopControl(int *optionArray) {
-    final int SIZE = 100000;
-    int timeArray1 = generateArray(optionArray[2]);
-    int timeArray2 = generateArray(optionArray[2]);
+    int SIZE = 100000;
+    int *timeArray1 = generateArray(optionArray[2]);
+    int *timeArray2 = generateArray(optionArray[2]);
 
     for (int i = 0; i < optionArray[2]; i++) {
         // allocate memory needed for the sorting arrays
@@ -242,21 +243,22 @@ void loopControl(int *optionArray) {
         timeArray2[i] = pickSort(optionArray[1], sort2Copy);
 
         // print out the individual run times
-        displayrunResult(optArray[0], timeArray1[i]);
-        displayrunResult(optArray[1], timeArray2[i]);
+        displayRunResult(optionArray[0], timeArray1[i]);
+        displayRunResult(optionArray[1], timeArray2[i]);
 
         // validate if correct
-        validateSort(arrayCopy, SIZE);
+        validateSort(sort1Copy, SIZE);
+        validateSort(sort2Copy, SIZE);
 
         // free the memory from the
         freeMemory(sort1Copy);
         freeMemory(sort2Copy);
     }
 
-    double avgTime1 = getAvgTime(timeArray1, optArray[2]);
-    double avgTime2 = getAvgTime(timeArray2, optArray[2]);
+    double avgTime1 = getAvgTime(timeArray1, optionArray[2]);
+    double avgTime2 = getAvgTime(timeArray2, optionArray[2]);
 
-    printResults(optionArray, avgTime1, avgTime2);
+    displayResults(optionArray, avgTime1, avgTime2);
 
     freeMemory(timeArray1);
     freeMemory(timeArray2);
@@ -281,6 +283,7 @@ string getSortName(int choice) {
         case 4 :
             return "Quick Sort";
         default:
+            return "ERROR";
     }
     return "ERROR";
 }
