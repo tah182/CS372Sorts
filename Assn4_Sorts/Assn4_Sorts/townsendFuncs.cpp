@@ -207,10 +207,6 @@ int findPartition(int *unsortedArray, int left, int right) {
     //assigns partition to final value of left
     wall = left;
 
-    //*********DEBUG****************
-    cout << "Partition is: " << wall << endl;
-    //******************************
-
     //returns partiton
     return wall;
 }
