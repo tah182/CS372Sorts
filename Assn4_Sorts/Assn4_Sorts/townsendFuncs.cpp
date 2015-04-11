@@ -180,19 +180,19 @@ void quickSort(int *unsortedArray, int left, int right) {
 // IMPLEMENTED BY:  Neil Townsend
 //**********************************************************************
 int findPartition(int *unsortedArray, int left, int right) {
-    int partiton,                            //partition to be used for array
+    int wall,                            //partition to be used for array
         temp;                                       //temp values used to exchange values
-
+    wall = 0;
     //finds partition, exchanging values along the way
     while (left < right) {
         //moves left boundary up
         left++;
 
         //checks to see if value is greater than partition and needs to be moved
-        if(unsortedArray[left] > unsortedArray[partition]) {
+        if(unsortedArray[left] > unsortedArray[wall]) {
 
             //moves right down until value is less than unsortedArray[partition] is found or right < left
-            while(unsortedArray[right] > unsortedArray[partition] && right > left) {
+            while(unsortedArray[right] > unsortedArray[wall] && right > left) {
                 right--;
             }
 
@@ -206,14 +206,14 @@ int findPartition(int *unsortedArray, int left, int right) {
     } // end of finding partition if
 
     //assigns partition to final value of left
-    partition = left;
+    wall = left;
 
     //*********DEBUG****************
-    cout << "Partition is: " << partition << endl;
+    cout << "Partition is: " << wall << endl;
     //******************************
 
     //returns partiton
-    return partition;
+    return wall;
 }
 
 //*********************************************************************
