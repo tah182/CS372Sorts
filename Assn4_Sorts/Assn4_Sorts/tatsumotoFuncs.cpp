@@ -239,7 +239,8 @@ void loopControl(int *optionArray) {
         displayrunResult(optArray[1], timeArray2[i]);
 
         validateSort(arrayCopy, SIZE);
-
+        freeMemory(timeArray1);
+        freeMemory(timeArray2);
     }
 
     double avgTime1 = getAvgTime(timeArray1, optArray[2]);
@@ -247,5 +248,6 @@ void loopControl(int *optionArray) {
 
     printResults(optionArray, avgTime1, avgTime2);
 
-
+    freeMemory(avgTime1);
+    freeMemory(avgTime2);
 }
