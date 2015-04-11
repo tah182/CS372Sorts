@@ -1,3 +1,6 @@
+#include "tatsumoto_Funcs.h"
+#include "Common.h"
+
 //*********************************************************************
 // FUNCTION:        getInputHelper()
 // DESCRIPTION:     reads number entered by user and validates the value
@@ -120,21 +123,92 @@ void displayRunResult(int option, double time) {
     cout << "Time for run on " + sortType + ": " << time << endl;
 }
 
-
 //*********************************************************************
-// FUNCTION:        avgRunTime()
-// DESCRIPTION:     returns the average time from an array
+// FUNCTION:        bubbleSort()
+// DESCRIPTION:     sorts an array using bubble sort algorithm
 // INPUT:
-//  Parameters:     times - the array of times
-//                  runs - the size of the array
+//  Parameters:     sortArray - the array to sort
+//                  arrSize - the size of the array
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
-double avgRunTime(double times[], int runs) {
-    double total = ;
-    for (int i = 0; i < runs; i++)
-        total += times[i];
+void bubbleSort(int unsortedArray[], int arrSize) {
+    int sorted = 0;
+    int currentIndex = 0;
+    int lastIndex = arrSize - 1
+    while (sorted != 1) {
+        sorted = 1;
+        currentIndex = 0;
+        while (currentIndex < lastIndex) {
+            if (unsortedArray[currentIndex] < unsortedArray[currentIndex + 1]) {
+                int temp = unsortedArray[currentIndex];
+                unsortedArray[currentIndex] = unsortedArray[currentIndex + 1];
+                unsortedArray[currentIndex + 1] = temp;
+                sorted = 0;
+            }
+            currentIndex++;
+        }
+        lastIndex++;
+    }
+}
 
-    return total / runs;
+//*********************************************************************
+// FUNCTION:        mergeA()
+// DESCRIPTION:     sorts an array using buble sort algorithm
+// INPUT:
+//  Parameters:     sortArray - the array to sort
+//                  lowIndex - the low index
+//                  midIndex - the middle index
+//                  highIndex - the high index
+// IMPLEMENTED BY:  TahTatsumoto
+//**********************************************************************
+void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
+    int tempArray = generateArray(100000);
+    for (int i = lowIndex, i < highIndex)
+        tempArray[i] = unsortedArray[i];
+
+    int left, right, temp;
+    left = temp = lowIndex;
+    right = midIndex + 1;
+
+    while (left <= midIndex && right <= highIndex) {
+        if (temp[left] <= temp[right]) {
+            unsortedArray[temp] = tempArray[left];
+            left++;
+        } else {
+            unsortedArray[temp] = tempArray[right];
+            right++;
+        }
+        temp++;
+    }
+    while (left <= midIndex) {
+        unsortedArray[temp] = tempArray[left];
+        temp++;
+        left++;
+    }
+    while (right <= highIndex) {
+        unsortedArray[temp] = tempArray[right];
+        temp++;
+        right++;
+    }
+}
+
+
+//*********************************************************************
+// FUNCTION:        mergeSort()
+// DESCRIPTION:     sorts an array using merge sort algorithm
+// INPUT:
+//  Parameters:     sortArray - the array to sort
+//                  beginning - the low index
+//                  end - the high index
+// IMPLEMENTED BY:  TahTatsumoto
+//**********************************************************************
+void mergeSort(int unsortedArray[], int left, int right) {
+    if (left < right) {
+        int middleIndex = (right + left) / 2;
+        mergeSort(unsortedArray[], left, middleIndex);
+        mergeSort(unsortedArray[], middleIndex + 1, right);
+        mergeA(unsortedArray[], left, middleIndex, right);
+    }
 }
 
 
@@ -146,10 +220,10 @@ double avgRunTime(double times[], int runs) {
 //		    sorting algorithms to test
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
-void loopControl(int optionArray[]) {
+void loopControl(int *optionArray) {
     final int SIZE = 100000;
-    //double timeArray1 = generateArray()
-    double timeArray1[optArray[2]], timeArray2[optArray[2]];
+    int timeArray1 = generateArray(optionArray[2]);
+    int timeArray2 = generateArray(optionArray[2]);
 
     for (int i = 0; i < optionArray[2]; i++) {
         int* randArray = generateArray(SIZE);
