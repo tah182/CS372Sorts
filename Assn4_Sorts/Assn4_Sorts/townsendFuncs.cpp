@@ -9,6 +9,7 @@
 
 
 #include "townsendFuncs.h"
+#include "tatsumotoFuncs.h"
 #include "Common.h"
 
 //*********************************************************************

@@ -16,7 +16,7 @@
 #include <fstream>
 #include <ctime>
 #include "townsendFuncs.h"
-#include "tatsumoto_Funcs.h"
+#include "tatsumotoFuncs.h"
 
 using namespace std;
 

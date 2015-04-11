@@ -1,29 +1,37 @@
 # depslib dependency file v1.0
-1428791450 source:/Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/main.cpp
+1428794011 source:/Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/main.cpp
 	"Common.h"
-	"tatsumotoFuncs.cpp"
+	"tatsumotoFuncs.h"
+	"townsendFuncs.h"
 
-1428792387 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/Common.h
+1428794196 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/Common.h
 	<iostream>
 	<iomanip>
 	<string>
 	<fstream>
 	<ctime>
 	"townsendFuncs.h"
-	"tatsumoto_Funcs.h"
+	"tatsumotoFuncs.h"
 
-1428792387 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/townsendFuncs.h
+1428794189 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/townsendFuncs.h
 	"Common.h"
 
 1428792476 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/tatsumoto_Funcs.h
 	"Common.h"
 
-1428792735 source:/Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/townsendFuncs.cpp
+1428793643 source:/Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/townsendFuncs.cpp
 	"townsendFuncs.h"
 	"Common.h"
 
 1428793241 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/tatsumotoFuncs.cpp
 	"tatsumoto_Funcs.h"
 	"townsendFuncs.h"
+	"Common.h"
+
+1428793567 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/townsendFuncs.cpp
+	"townsendFuncs.h"
+	"Common.h"
+
+1428794180 /Users/tah1/OneDrive/School/CS372Programs/Sorts/Assn4_Sorts/Assn4_Sorts/tatsumotoFuncs.h
 	"Common.h"
 

@@ -1,5 +1,5 @@
-#ifndef TATSUMOTO_FUNCS_H_INCLUDED
-#define TATSUMOTO_FUNCS_H_INCLUDED
+#ifndef __Assn4_Sorts__tatsumotoFuncs__
+#define __Assn4_Sorts__tatsumotoFuncs__
 
 #include "Common.h"
 

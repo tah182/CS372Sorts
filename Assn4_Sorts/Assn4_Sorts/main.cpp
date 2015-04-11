@@ -7,6 +7,8 @@
 //
 
 #include "Common.h"
+#include "tatsumotoFuncs.h"
+#include "townsendFuncs.h"
 
 int main(int argc, const char * argv[]) {
 
