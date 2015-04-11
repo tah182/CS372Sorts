@@ -18,4 +18,9 @@
 
 using namespace std;
 
+const int   RAND_MAX_VALUE = 30000,                     //maximum random value that can be used in random array
+            RAND_MIN_VALUE = 1,                         //minimum random value that can be used in random array
+            MENU_CHOICE_NUMS = 3;                       //number of choices that user must make in the menu
+
+
 #endif
