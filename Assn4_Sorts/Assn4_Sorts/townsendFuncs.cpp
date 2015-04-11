@@ -147,18 +147,18 @@ void insertionSort(int *unsortedArray, int left, int right) {
 // IMPLEMENTED BY:  Neil Townsend
 //**********************************************************************
 void quickSort(int *unsortedArray, int left, int right) {
-    int partition;                          //partition for current call of quickSort()
+    int wall;                          //partition for current call of quickSort()
     
     //keeps sorting as long as there is more than one index in array
     if (left < right) {
         //finds partition
-        partition = findPartition(unsortedArray, left, right);
+        wall = findPartition(unsortedArray, left, right);
         
         //left side of array recursion
-        quickSort(unsortedArray, left, partition - 1);
+        quickSort(unsortedArray, left, wall - 1);
         
         //right side of array recursion
-        quickSort(unsortedArray, partition + 1, right);
+        quickSort(unsortedArray, wall + 1, right);
         
     }
     
@@ -180,8 +180,8 @@ void quickSort(int *unsortedArray, int left, int right) {
 // IMPLEMENTED BY:  Neil Townsend
 //**********************************************************************
 int findPartition(int *unsortedArray, int left, int right) {
-    int partiton,                            //partition to be used for array
-        temp;                                       //temp values used to exchange values
+    int wall,                            //partition to be used for array
+        temp;                            //temp values used to exchange values
     
     //finds partition, exchanging values along the way
     while (left < right) {
@@ -189,10 +189,10 @@ int findPartition(int *unsortedArray, int left, int right) {
         left++;
         
         //checks to see if value is greater than partition and needs to be moved
-        if(unsortedArray[left] > unsortedArray[partition]) {
+        if(unsortedArray[left] > unsortedArray[wall]) {
             
             //moves right down until value is less than unsortedArray[partition] is found or right < left
-            while(unsortedArray[right] > unsortedArray[partition] && right > left) {
+            while(unsortedArray[right] > unsortedArray[wall] && right > left) {
                 right--;
             }
             
@@ -206,14 +206,14 @@ int findPartition(int *unsortedArray, int left, int right) {
     } // end of finding partition if
     
     //assigns partition to final value of left
-    partition = left;
+    wall = left;
     
     //*********DEBUG****************
-    cout << "Partition is: " << partition << endl;
+    cout << "Partition is: " << wall << endl;
     //******************************
     
     //returns partiton
-    return partition;
+    return wall;
 }
 
 //*********************************************************************
