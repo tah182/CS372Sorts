@@ -32,7 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Common.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="tatsumotoFuncs.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="tatsumoto_Funcs.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="townsendFuncs.cpp" />
+		<Unit filename="townsendFuncs.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
