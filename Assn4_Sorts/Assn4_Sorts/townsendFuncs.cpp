@@ -170,7 +170,29 @@ bool validateSort(int *checkSort, int arraySize) {
 }
 
 
+//*********************************************************************
+// FUNCTION:        freeMemory()
+// DESCRIPTION:     deallocates memory used for results arrays
+// INPUT:
+//  Parameters: 	deleteArray - pointer to array that needs to be deallocated
+// OUTPUT:
+//  Return value:   deleteArray - pointer to deallocated array, reassigned to NULL
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+int* freeMemory(int *deleteArray) {
+    
+    //frees up memory allocated at pointer
+    delete deleteArray;
+    
+    //*********DEBUG****************
+    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
+    //******************************
 
+    //reassigns pointer to NULL
+    deleteArray = NULL;
+    
+    return deleteArray;
+}
 
 
 
