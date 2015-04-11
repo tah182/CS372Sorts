@@ -102,15 +102,16 @@ int getAvgTime(int *times, int numTests) {
 // DESCRIPTION:     performs an insertion sort on a provided array
 // INPUT:
 //  Parameters: 	unsortedArray[] - array that contains unsorted values
-//                  arraySize - size of unsorted array in indices
+//                  left - left edge of array
+//                  right - right edge of array
 // IMPLEMENTED BY:  Neil Townsend
 //**********************************************************************
-void insertionSort(int *unsortedArray, int arraySize) {
+void insertionSort(int *unsortedArray, int left, int right) {
     int insertPoint,                        //where to insert current value into array
         temp = 0;                           //used to temporarily hold values
     
     //sorting loop for array
-    for(int indexCounter = 0; indexCounter < arraySize; indexCounter++) {
+    for(int indexCounter = left; indexCounter < right; indexCounter++) {
         //sets insertion point at current value
         insertPoint = indexCounter;
         
@@ -134,6 +135,85 @@ void insertionSort(int *unsortedArray, int arraySize) {
     //*********DEBUG****************
     cout << "Array has been sorted using an insertion sort" << endl;
     //******************************
+}
+
+//*********************************************************************
+// FUNCTION:        quickSort()
+// DESCRIPTION:     performs a quick sort on a provided array
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  left - left edge of array
+//                  right - right edge of array
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+void quickSort(int *unsortedArray, int left, int right) {
+    int partition;                          //partition for current call of quickSort()
+    
+    //keeps sorting as long as there is more than one index in array
+    if (left < right) {
+        //finds partition
+        partition = findPartition(unsortedArray, left, right);
+        
+        //left side of array recursion
+        quickSort(unsortedArray, left, partition - 1);
+        
+        //right side of array recursion
+        quickSort(unsortedArray, partition + 1, right);
+        
+    }
+    
+    //*********DEBUG****************
+    else {
+        cout << "Array has been sorted using a quick sort" << endl;
+    }
+    //******************************
+
+}
+
+//*********************************************************************
+// FUNCTION:        findPartition()
+// DESCRIPTION:     finds the partition value within an array for quicksort()
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  left - left edge of array
+//                  right - right edge of array
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+int findPartition(int *unsortedArray, int left, int right) {
+    int partiton,                            //partition to be used for array
+        temp;                                       //temp values used to exchange values
+    
+    //finds partition, exchanging values along the way
+    while (left < right) {
+        //moves left boundary up
+        left++;
+        
+        //checks to see if value is greater than partition and needs to be moved
+        if(unsortedArray[left] > unsortedArray[partition]) {
+            
+            //moves right down until value is less than unsortedArray[partition] is found or right < left
+            while(unsortedArray[right] > unsortedArray[partition] && right > left) {
+                right--;
+            }
+            
+            //swaps right and left values if needed
+            if (unsortedArray[left] > unsortedArray[right]) {
+                temp = unsortedArray[left];
+                unsortedArray[left] = unsortedArray[right];
+                unsortedArray[right] = temp;
+            }
+        }
+    } // end of finding partition if
+    
+    //assigns partition to final value of left
+    partition = left;
+    
+    //*********DEBUG****************
+    cout << "Partition is: " << partition << endl;
+    //******************************
+    
+    //returns partiton
+    return partition;
 }
 
 //*********************************************************************
@@ -193,9 +273,6 @@ int* freeMemory(int *deleteArray) {
     
     return deleteArray;
 }
-
-
-
 
 
 
