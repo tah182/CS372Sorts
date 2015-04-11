@@ -70,7 +70,7 @@ void getInput(int opts[]) {
 // DESCRIPTION:     displays the main menu and program instructions to user
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
-void displayMainMenu(int optArray[]) {
+void displayMainMenu(int *optArray) {
     cout << "*****Tatsumoto-Townsend-assn4-prog*****" << endl;
     cout << "This program will assess statistics behind:" << endl;
     cout << "    - bubble sort" << endl;
@@ -78,7 +78,7 @@ void displayMainMenu(int optArray[]) {
     cout << "    - quick sort" << endl;
     cout << "    - merge sort" << endl;
     cout << "and display the averages of each sort method." << endl << endl;
-    getInput(optionArray);
+    getInput(optArray);
 }
 
 
@@ -226,21 +226,30 @@ void loopControl(int *optionArray) {
     int timeArray2 = generateArray(optionArray[2]);
 
     for (int i = 0; i < optionArray[2]; i++) {
+        // allocate memory needed for the sorting arrays
         int* randArray = generateArray(SIZE);
         int* sort1Copy = generateArray(SIZE);
         int* sort2Copy = generateArray(SIZE);
+
+        // fill array with raundom numbers and copy to each array
         fillRandomArray(randArray, SIZE);
         copyArray(sort1Copy, randArray);
         copyArray(sort2Copy, randArray);
 
+        // get the time to sort each array
         timeArray1[i] = pickSort(optionArray[0], sort1Copy);
         timeArray2[i] = pickSort(optionArray[1], sort2Copy);
+
+        // print out the individual run times
         displayrunResult(optArray[0], timeArray1[i]);
         displayrunResult(optArray[1], timeArray2[i]);
 
+        // validate if correct
         validateSort(arrayCopy, SIZE);
-        freeMemory(timeArray1);
-        freeMemory(timeArray2);
+
+        // free the memory from the
+        freeMemory(sort1Copy);
+        freeMemory(sort2Copy);
     }
 
     double avgTime1 = getAvgTime(timeArray1, optArray[2]);
@@ -248,6 +257,45 @@ void loopControl(int *optionArray) {
 
     printResults(optionArray, avgTime1, avgTime2);
 
-    freeMemory(avgTime1);
-    freeMemory(avgTime2);
+    freeMemory(timeArray1);
+    freeMemory(timeArray2);
+}
+
+
+//*********************************************************************
+// FUNCTION:        getSortName()
+// DESCRIPTION:     provides the string name of the sort option
+// INPUT:
+//  Parameters:     choice - the integer choice option
+// IMPLEMENTED BY:  Tah Tatsumoto
+//**********************************************************************
+string getSortName(int choice) {
+    switch (choice) {
+        case 1 :
+            return "Bubble Sort";
+        case 2 :
+            return "Insertion Sort";
+        case 3 :
+            return "Merge Sort";
+        case 4 :
+            return "Quick Sort";
+        default:
+    }
+    return "ERROR";
+}
+
+//*********************************************************************
+// FUNCTION:        displayResults()
+// DESCRIPTION:     Displays the statistics of the sorts ran
+// INPUT:
+//  Parameters:     optionArray - array containing number of trials and which sorting
+//		    sorting algorithms to test
+//                  sortAvg1 - the average time to run sort 1
+//                  sortAvg2 - the average time to run sort 2
+// IMPLEMENTED BY:  Tah Tatsumoto
+//**********************************************************************
+void displayResults(int optArray[], double sortAvg1, double sortAvg2) {
+    cout << endl << endl << "Sorting ran " << optArray[2] << " times." << endl;
+    cout << "For the " << getSortName(optArray[0]) << " the average time was " << sortAvg1 << endl;
+    cout << "For the " << getSortName(optArray[1]) << " the average time was " << sortAvg2 << endl;
 }
