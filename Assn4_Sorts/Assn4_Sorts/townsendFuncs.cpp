@@ -159,9 +159,10 @@ void quickSort(int *unsortedArray, int left, int right) {
 
         //right side of array recursion
         quickSort(unsortedArray, wall + 1, right);
+    }
 
     //*********DEBUG****************
-    }else {
+    else {
         cout << "Array has been sorted using a quick sort" << endl;
     }
     //******************************
@@ -271,6 +272,66 @@ int* freeMemory(int *deleteArray) {
 
     return deleteArray;
 }
+
+//*********************************************************************
+// FUNCTION:        pickSort()
+// DESCRIPTION:     chooses which sorting algorithm to use to sort an array with random values
+// INPUT:
+//  Parameters:     sortOption - which sorting option the user chose
+//                  sortArray - array containing random values to sort
+// OUTPUT:
+//  Return Value:   time - time taken to sort array
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+int pickSort(int sortOption, int *sortArray) {
+    int time,                                       //time taken to run the sorting algorithm
+        startTime,                                  //starting time for algorithm
+        endTime;                                    //ending time for algorithm
+    
+    //records current clock time
+    startTime = clock();
+    
+    //selects appropriate sorting mechanism
+    switch (sortOption) {
+        case 1 : bubbleSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+            break;
+        case 2 : insertionSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+            break;
+        case 3 : mergeSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+            break;
+        case 4 : quickSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+            break;
+        default:
+            break;
+    }
+    
+    //records ending time
+    endTime = clock();
+    
+    
+    //calculates time for algorithm
+    time = endTime - startTime;
+    
+    //*********DEBUG****************
+    cout << "It took " << time << " clock cycles to sort the array." << endl;
+    //******************************
+    
+    //returns the time taken to run the sorting algorithm
+    return time;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

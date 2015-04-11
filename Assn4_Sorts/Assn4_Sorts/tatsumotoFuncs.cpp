@@ -53,7 +53,7 @@ void getInput(int opts[]) {
             int firstOpt = input - secondOpt;
             if (firstOpt == 5 || secondOpt == 5) {
                 cout << "Exiting..." << endl;
-                exit(1);
+                //system.exit();
             }
             opts[0] = firstOpt;
             opts[1] = secondOpt;
@@ -61,6 +61,9 @@ void getInput(int opts[]) {
         }
     } while (valid == 0);
 
+    printout = "\nHow many times should we sort? ";
+    opts[2] = getInputHelper(printout);
+}
     printout = "\nHow many times should we sort? ";
     opts[2] = getInputHelper(printout);
 }
@@ -119,8 +122,7 @@ void displayRunResult(int option, double time) {
         case 4 :
             sortType = "Quick Sort";
             break;
-        default:
-            break;
+        default: ;
     }
     cout << "Time for run on " + sortType + ": " << time << endl;
 }
@@ -133,10 +135,10 @@ void displayRunResult(int option, double time) {
 //                  arrSize - the size of the array
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
-void bubbleSort(int unsortedArray[], int arrSize) {
+void bubbleSort(int unsortedArray[], int left, int right) {
     int sorted = 0;
     int currentIndex = 0;
-    int lastIndex = arrSize - 1;
+    int lastIndex = right - 1;
     while (sorted != 1) {
         sorted = 1;
         currentIndex = 0;
@@ -165,15 +167,16 @@ void bubbleSort(int unsortedArray[], int arrSize) {
 //**********************************************************************
 void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
     int *tempArray = generateArray(100000);
-    for (int i = lowIndex; i < highIndex; i++)
+    for (int i = lowIndex; i < highIndex; i++) {
         tempArray[i] = unsortedArray[i];
-
+    }
+    
     int left, right, temp;
     left = temp = lowIndex;
     right = midIndex + 1;
 
     while (left <= midIndex && right <= highIndex) {
-        if (tempArray[left] <= tempArray[right]) {
+        if (unsortedArray[left] <= unsortedArray[right]) {
             unsortedArray[temp] = tempArray[left];
             left++;
         } else {
@@ -224,8 +227,8 @@ void mergeSort(int unsortedArray[], int left, int right) {
 //**********************************************************************
 void loopControl(int *optionArray) {
     int SIZE = 100000;
-    int *timeArray1 = generateArray(optionArray[2]);
-    int *timeArray2 = generateArray(optionArray[2]);
+    int *timeArray1 = generateArray(2);
+    int *timeArray2 = generateArray(2);
 
     for (int i = 0; i < optionArray[2]; i++) {
         // allocate memory needed for the sorting arrays
@@ -247,8 +250,7 @@ void loopControl(int *optionArray) {
         displayRunResult(optionArray[1], timeArray2[i]);
 
         // validate if correct
-        validateSort(sort1Copy, SIZE);
-        validateSort(sort2Copy, SIZE);
+        validateSort(arrayCopy, SIZE);
 
         // free the memory from the
         freeMemory(sort1Copy);
@@ -282,8 +284,7 @@ string getSortName(int choice) {
             return "Merge Sort";
         case 4 :
             return "Quick Sort";
-        default:
-            return "ERROR";
+        default: ;
     }
     return "ERROR";
 }
