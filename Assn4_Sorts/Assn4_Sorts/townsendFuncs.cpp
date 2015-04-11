@@ -130,7 +130,38 @@ void insertionSort(int *unsortedArray, int arraySize) {
     //******************************
 }
 
+//*********************************************************************
+// FUNCTION:        validateSort()
+// DESCRIPTION:     validates whether or not a sorting algorithm completed sorting process successfully
+// INPUT:
+//  Parameters:     unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// OUTPUT:
+//  Return value:   sortValidated - boolean for whether or not sort was successful
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+bool validateSort(int *checkSort, int arraySize) {
+    bool sortValidated = true;                      //boolean for whether or not sort was successful
+    int validateIndex = 0;                          //counter for which index is being checked
+    
+    //checks each index against the one next to it to make sure the array is in order
+    //continues checking as long as this is true
+    while(checkSort[validateIndex] < checkSort[validateIndex + 1] && validateIndex < arraySize - 1) {
+        validateIndex++;
+    }
+    
+    //if the check stopped early, then array is not sorted
+    if(validateIndex != arraySize -1 ) {
+        sortValidated = false;
+    }
+    
+    //*********DEBUG****************
+    cout << "Sorting process validation code: " << sortValidated << endl;
+    //******************************
 
+    //returns boolean for sort validation
+    return sortValidated;
+}
 
 
 
