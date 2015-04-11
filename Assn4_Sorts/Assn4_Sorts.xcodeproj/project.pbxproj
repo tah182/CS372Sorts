@@ -25,7 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+<<<<<<< Updated upstream
 		D613D2BD1AD9C59B00876644 /* tatsumotoFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tatsumotoFuncs.h; sourceTree = "<group>"; };
+=======
+>>>>>>> Stashed changes
 		D613D2BE1AD9C59B00876644 /* tatsumotoFuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tatsumotoFuncs.cpp; sourceTree = "<group>"; };
 		D623F0991ACE346C00338CCB /* Assn4_Sorts */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assn4_Sorts; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623F09C1ACE346C00338CCB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 		D6594B921AD0BBB70021AF56 /* townsendFuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = townsendFuncs.cpp; sourceTree = "<group>"; };
 		D6594B931AD0BBB70021AF56 /* townsendFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = townsendFuncs.h; sourceTree = "<group>"; };
 		D6594B951AD0BBD30021AF56 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		D6966E1C1AD9E33500284A7E /* tatsumotoFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tatsumotoFuncs.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +73,11 @@
 				D6594B951AD0BBD30021AF56 /* Common.h */,
 				D6594B931AD0BBB70021AF56 /* townsendFuncs.h */,
 				D6594B921AD0BBB70021AF56 /* townsendFuncs.cpp */,
+<<<<<<< Updated upstream
 				D613D2BD1AD9C59B00876644 /* tatsumotoFuncs.h */,
+=======
+				D6966E1C1AD9E33500284A7E /* tatsumotoFuncs.h */,
+>>>>>>> Stashed changes
 				D613D2BE1AD9C59B00876644 /* tatsumotoFuncs.cpp */,
 				D623F0A31ACE34BD00338CCB /* Function Ideas.txt */,
 			);
