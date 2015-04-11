@@ -50,7 +50,7 @@ void getInput(int opts[]) {
             valid = 0 ;
         } else {
             int secondOpt = input % 10;
-            int firstOpt = input - secondOpt * 10;
+            int firstOpt = (input - secondOpt) / 10;
             if (firstOpt == 5 || secondOpt == 5) {
                 cout << "Exiting..." << endl;
                 //system.exit();
