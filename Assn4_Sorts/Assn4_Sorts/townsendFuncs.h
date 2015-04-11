@@ -14,6 +14,8 @@
 int* generateArray(int );
 void fillRandomArray(int *, int );
 int getRandInt();
+int getAvgTime(int , int );
+void insertionSort(int *, int );
 
 
 #endif /* defined(__Assn4_Sorts__townsendFuncs__) */

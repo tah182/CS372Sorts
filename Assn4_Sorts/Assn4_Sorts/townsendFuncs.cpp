@@ -70,6 +70,65 @@ int getRandInt() {
     return randInt;
 }
 
+//*********************************************************************
+// FUNCTION:        getAvgTime()
+// DESCRIPTION:     calculates length of time that a sorting algorithm took to sort a list
+// INPUT:
+//  Parameters: 	startTime - starting time of sorting algorithm
+//                  endTime - ending time of sorting algorithm
+// OUTPUT:
+//  Return value:   runTime - running time for sorting algorithm
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+int getAvgTime(int startTime, int endTime) {
+    double avgTime;                         //average time taken to complete a sort
+    
+    //*********DEBUG****************
+    cout << "calculateTime called with start time " << startTime << " and end time " << endTime << endl;
+    //******************************
+
+    //returns average
+    return avgTime;
+}
+
+//*********************************************************************
+// FUNCTION:        insertionSort()
+// DESCRIPTION:     performs an insertion sort on a provided array
+// INPUT:
+//  Parameters: 	unsortedArray[] - array that contains unsorted values
+//                  arraySize - size of unsorted array in indices
+// IMPLEMENTED BY:  Neil Townsend
+//**********************************************************************
+void insertionSort(int *unsortedArray, int arraySize) {
+    int insertPoint,                        //where to insert current value into array
+        temp = 0;                           //used to temporarily hold values
+    
+    //sorting loop for array
+    for(int indexCounter = 0; indexCounter < arraySize; indexCounter++) {
+        //sets insertion point at current value
+        insertPoint = indexCounter;
+        
+        //finds insertion point
+        while (unsortedArray[indexCounter] <= unsortedArray[insertPoint] && insertPoint > 0) {
+            insertPoint--;
+        }
+        
+        //saves value to be inserted
+        temp = unsortedArray[indexCounter];
+        
+        //shifts all values between insertion point and current index
+        for(int shiftCounter = insertPoint; shiftCounter < indexCounter; shiftCounter++) {
+            unsortedArray[shiftCounter + 1] = unsortedArray[shiftCounter];
+        }
+        
+        //inserts value in correct location
+        unsortedArray[insertPoint] = temp;
+    }
+    
+    //*********DEBUG****************
+    cout << "Array has been sorted using an insertion sort" << endl;
+    //******************************
+}
 
 
 
