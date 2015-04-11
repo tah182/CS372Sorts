@@ -62,7 +62,7 @@ void getInput(int opts[]) {
     } while (valid == 0);
 
     printout = "\nHow many times should we sort? ";
-    ops[2] = getInputHelper(printout);
+    opts[2] = getInputHelper(printout);
 }
 
 
