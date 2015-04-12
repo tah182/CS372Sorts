@@ -156,21 +156,17 @@ void quickSort(int *unsortedArray, int left, int right) {
 
     //keeps sorting as long as there is more than one index in array
     if (left < right) {
+
+        
         //finds partition
         wall = findPartition(unsortedArray, left, right);
-
+        
         //left side of array recursion
         quickSort(unsortedArray, left, wall - 1);
 
         //right side of array recursion
-        quickSort(unsortedArray, wall + 1, right);
+        quickSort(unsortedArray, wall , right);
     }
-
-    //*********DEBUG****************
-//    else {
-//        cout << "Array has been sorted using a quick sort" << endl;
-//    }
-    //******************************
 
 }
 
@@ -185,32 +181,37 @@ void quickSort(int *unsortedArray, int left, int right) {
 //**********************************************************************
 int findPartition(int *unsortedArray, int left, int right) {
     int wall,                            //partition to be used for array
-        temp;                            //temp values used to exchange values
+        temp = 0;                            //temp values used to exchange values
     wall = left;
     //finds partition, exchanging values along the way
     while (left < right) {
-        //moves left boundary up
-        left++;
+        //moves left boundary up until value larger than unsortedArray[wall] is found
+        while ((unsortedArray[left] <= unsortedArray[wall]) && (left < right)) {
+            left++;
+        }
+            
+        //moves right down until value is less than unsortedArray[wall] is found
+        while(unsortedArray[right] > unsortedArray[wall]) {
+            right--;
+        }
 
-        //checks to see if value is greater than partition and needs to be moved
-        if(unsortedArray[left] > unsortedArray[wall]) {
-
-            //moves right down until value is less than unsortedArray[partition] is found or right < left
-            while(unsortedArray[right] > unsortedArray[wall] && right > left) {
-                right--;
-            }
-
-            //swaps right and left values if needed
-            if (unsortedArray[left] > unsortedArray[right]) {
-                temp = unsortedArray[left];
-                unsortedArray[left] = unsortedArray[right];
-                unsortedArray[right] = temp;
-            }
+        //swaps right and left values if needed
+        if (left < right) {
+            temp = unsortedArray[left];
+            unsortedArray[left] = unsortedArray[right];
+            unsortedArray[right] = temp;
         }
     } // end of finding partition if
 
+    //exchange wall index with left index
+    temp = unsortedArray[right];
+    unsortedArray[right] = unsortedArray[wall];
+    unsortedArray[wall] = temp;
+    
     //assigns partition to final value of left
     wall = left;
+    
+
 
     //returns partiton
     return wall;
@@ -288,28 +289,31 @@ int pickSort(int sortOption, int *sortArray) {
     int time,                                       //time taken to run the sorting algorithm
         startTime,                                  //starting time for algorithm
         endTime;                                    //ending time for algorithm
+    void (*sortPtr)(int *, int , int );
 
     //records current clock time
     startTime = clock();
-
+    
     //selects appropriate sorting mechanism
     switch (sortOption) {
-        case 1 : bubbleSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+        case 1 : sortPtr = &bubbleSort;
             break;
-        case 2 : insertionSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+        case 2 : sortPtr = &insertionSort;
             break;
-        case 3 : mergeSort(sortArray, 0, RANDOM_ARRAY_SIZE - 1);
+        case 3 : sortPtr = &mergeSort;
             break;
-        case 4 : quickSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+        case 4 : sortPtr = &quickSort;
             break;
         default:
             break;
     }
+    
+    //calls sorting algorithm using function pointer
+    (sortPtr)(sortArray, 0, RANDOM_ARRAY_SIZE);
 
     //records ending time
     endTime = clock();
-
-
+    
     //calculates time for algorithm
     time = endTime - startTime;
 
