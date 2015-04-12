@@ -36,6 +36,21 @@
 #include "tatsumotoFuncs.h"
 #include "townsendFuncs.h"
 
+//**************************************************************************
+// FUNCTION:    main()
+// DESCRIPTION: primary function in program. Seeds random number generator and displays information regarding
+//              program purpose to user, then displays main menu and reads options. Then, program runs sorting algorithms
+//              repeatedly and display information regarding efficiency of algorithms to user. This process repeats until
+//              user chooses to exit the program
+// INPUT:
+//  Parameters: argc - number of arguments entered on command line
+//              *argv[] - array containing each argument
+// OUTPUT:
+//	Return Val: 0 on success
+//CALLS TO:	    displayMainMenu()
+//              getInput()
+//              loopControl()
+//**************************************************************************
 int main(int argc, const char * argv[]) {
 
     int optionArray[MENU_CHOICE_NUMS];              //array to hold user's menu selections
