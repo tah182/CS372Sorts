@@ -5,8 +5,8 @@
 // FUNCTION:        getInputHelper()
 // DESCRIPTION:     reads number entered by user and validates the value
 // OUTPUT:
-//  Return Value:   inputValue - value entered by user and validated
-// INPUT:           The String to display
+//  Return Value:   int - value entered by user and validated
+// INPUT:           diplay - The String to display
 // IMPLEMENTED BY: Tah Tatsumoto
 //**********************************************************************
 int getInputHelper(string display) {
@@ -27,9 +27,7 @@ int getInputHelper(string display) {
 //*********************************************************************
 // FUNCTION:        getInput()
 // DESCRIPTION:     Gets the necessary input from the user
-// OUTPUT:
-//  Return Value:
-//
+// INPUT:           opts - The options choices made by the user
 // IMPLEMENTED BY: Tah Tatsumoto
 //**********************************************************************
 void getInput(int opts[]) {
@@ -86,8 +84,8 @@ void displayMainMenu() {
 // DESCRIPTION:     copies values from one array to another equally sized array
 // INPUT:
 //  Parameters:     originalArray - array containing values to copy
-//		    newArray - array to copy values into
-// IMPLEMENTED BY:  TahTatsumoto
+//                  newArray - array to copy values into
+// IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
 void copyArray(int *originalArray, int *newArray) {
     for (int i = 0; i < 100000; i++)
@@ -102,7 +100,7 @@ void copyArray(int *originalArray, int *newArray) {
 //                  time - the clicks taken to run
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
-void displayRunResult(int runNum, int option, double time) {
+void displayRunResult(int option, double time) {
     string sortType = "";
     switch (option) {
         case 1 :
@@ -198,9 +196,9 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
 // FUNCTION:        mergeSort()
 // DESCRIPTION:     sorts an array using merge sort algorithm
 // INPUT:
-//  Parameters:     sortArray - the array to sort
-//                  beginning - the low index
-//                  end - the high index
+//  Parameters:     unSortedArray - the array to sort
+//                  left - the low index
+//                  right - the high index
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
 void mergeSort(int unsortedArray[], int left, int right) {
@@ -242,10 +240,10 @@ void loopControl(int *optionArray) {
             // print out the individual run times
             if (sortNum == 0) {
                 timeArray1[i] = pickSort(optionArray[sortNum], sortCopy);
-                displayRunResult(i, optionArray[sortNum], timeArray1[i]);
+                displayRunResult(optionArray[sortNum], timeArray1[i]);
             } else {
                 timeArray2[i] = pickSort(optionArray[sortNum], sortCopy);
-                displayRunResult(i, optionArray[sortNum], timeArray2[i]);
+                displayRunResult(optionArray[sortNum], timeArray2[i]);
             }
             
             // validate if correct
@@ -277,6 +275,7 @@ void loopControl(int *optionArray) {
 // DESCRIPTION:     provides the string name of the sort option
 // INPUT:
 //  Parameters:     choice - the integer choice option
+// OUTPUT:          string - the name of the choice option
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
 string getSortName(int choice) {
