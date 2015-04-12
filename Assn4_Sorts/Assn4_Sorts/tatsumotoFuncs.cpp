@@ -52,7 +52,7 @@ void getInput(int opts[]) {
             int firstOpt = (input - secondOpt) / 10;
             if (firstOpt == 5 || secondOpt == 5) {
                 cout << "Exiting..." << endl;
-                //system.exit();
+                exit(1);
             }
             opts[0] = firstOpt;
             opts[1] = secondOpt;
@@ -70,7 +70,7 @@ void getInput(int opts[]) {
 // DESCRIPTION:     displays the main menu and program instructions to user
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
-void displayMainMenu(int *optArray) {
+void displayMainMenu() {
     cout << "*****Tatsumoto-Townsend-assn4-prog*****" << endl;
     cout << "This program will assess statistics behind:" << endl;
     cout << "    - bubble sort" << endl;
@@ -78,7 +78,6 @@ void displayMainMenu(int *optArray) {
     cout << "    - quick sort" << endl;
     cout << "    - merge sort" << endl;
     cout << "and display the averages of each sort method." << endl << endl;
-    getInput(optArray);
 }
 
 
@@ -103,7 +102,7 @@ void copyArray(int *originalArray, int *newArray) {
 //                  time - the clicks taken to run
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
-void displayRunResult(int option, double time) {
+void displayRunResult(int runNum, int option, double time) {
     string sortType = "";
     switch (option) {
         case 1 :
@@ -120,7 +119,7 @@ void displayRunResult(int option, double time) {
             break;
         default: ;
     }
-    cout << "Time for run on " + sortType + ": " << time << endl;
+    cout << "       " << sortType << " time..." << time << endl;
 }
 
 //*********************************************************************
@@ -162,7 +161,7 @@ void bubbleSort(int unsortedArray[], int left, int right) {
 // IMPLEMENTED BY:  TahTatsumoto
 //**********************************************************************
 void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
-    int *tempArray = generateArray(RANDOM_ARRAY_SIZE);
+    static int *tempArray = generateArray(RANDOM_ARRAY_SIZE);
     for (int i = lowIndex; i < highIndex; i++)
         tempArray[i] = unsortedArray[i];
 
@@ -190,7 +189,7 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
         temp++;
         right++;
     }
-    freeMemory(tempArray);
+//    freeMemory(tempArray);
 }
 
 
@@ -232,6 +231,7 @@ void loopControl(int *optionArray) {
 
         // fill array with raundom numbers and copy to each array
         fillRandomArray(randArray, RANDOM_ARRAY_SIZE);
+        cout << "Starting sort #" << i + 1 << "..." << endl;
         
         // run through each sort
         for (int sortNum = 0; sortNum < 2; sortNum++) {
@@ -241,14 +241,19 @@ void loopControl(int *optionArray) {
             // print out the individual run times
             if (sortNum == 0) {
                 timeArray1[i] = pickSort(optionArray[sortNum], sortCopy);
-                displayRunResult(optionArray[sortNum], timeArray1[i]);
+                displayRunResult(i, optionArray[sortNum], timeArray1[i]);
             } else {
                 timeArray2[i] = pickSort(optionArray[sortNum], sortCopy);
-                displayRunResult(optionArray[sortNum], timeArray2[i]);
+                displayRunResult(i, optionArray[sortNum], timeArray2[i]);
             }
             
             // validate if correct
-            validateSort(sortCopy, RANDOM_ARRAY_SIZE);
+            if (validateSort(sortCopy, RANDOM_ARRAY_SIZE))
+                cout << "       Sorts validated" << endl;
+            else {
+                cout << "Not sorted !" << endl;
+                exit(1);
+            }
         }
         // free the memory for the copy
         freeMemory(sortCopy);
@@ -258,6 +263,8 @@ void loopControl(int *optionArray) {
     double avgTime2 = getAvgTime(timeArray2, optionArray[2]);
 
     displayResults(optionArray, avgTime1, avgTime2);
+    
+    cout << endl << endl << endl;
 
     freeMemory(timeArray1);
     freeMemory(timeArray2);

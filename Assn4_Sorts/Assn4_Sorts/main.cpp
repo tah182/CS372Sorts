@@ -18,10 +18,14 @@ int main(int argc, const char * argv[]) {
     srandom(time(NULL));
 
     //displays main menu to user and reads user choice of sorting algorithms and number of tests
-    displayMainMenu(optionArray);
+    displayMainMenu();
 
-    //performs tests for chosen sorting algorithms and displays results to user
-    loopControl(optionArray);
+    while (true) {
+        getInput(optionArray);
+        
+        //performs tests for chosen sorting algorithms and displays results to user
+        loopControl(optionArray);
+    }
 
     //end of program
     return 0;

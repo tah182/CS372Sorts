@@ -50,7 +50,7 @@ void fillRandomArray(int *newArray, int arraySize) {
     }
 
     //*********DEBUG****************
-    cout << "Filled array with " << arraySize << " random values" << endl;
+//    cout << "Filled array with " << arraySize << " random values" << endl;
     //******************************
 }
 
@@ -91,7 +91,7 @@ int getAvgTime(int *times, int numTests) {
     avgTime /= numTests;
 
     //*********DEBUG****************
-    cout << "calculateTime called with average time: " << avgTime << endl;
+//    cout << "calculateTime called with average time: " << avgTime << endl;
     //******************************
 
     //returns average
@@ -112,11 +112,11 @@ void insertionSort(int *unsortedArray, int left, int right) {
     temp;                                   //used to temporarily hold value to be moved into place
     
     //*********DEBUG****************
-    ofstream debug2;
-    debug2.open("/users/nrtownsend/Desktop/randomArray.txt");
-    for(int debugCount = 0; debugCount < RANDOM_ARRAY_SIZE; debugCount++) {
-        debug2 << "array[" << debugCount << "]: " <<  unsortedArray[debugCount] << endl;
-    }
+//    ofstream debug2;
+//    debug2.open("/users/nrtownsend/Desktop/randomArray.txt");
+//    for(int debugCount = 0; debugCount < RANDOM_ARRAY_SIZE; debugCount++) {
+//        debug2 << "array[" << debugCount << "]: " <<  unsortedArray[debugCount] << endl;
+//    }
     //******************************
     
     //sorting loop for array
@@ -133,12 +133,12 @@ void insertionSort(int *unsortedArray, int left, int right) {
     }
 
     //*********DEBUG****************
-    ofstream debug;
-    debug.open("/users/nrtownsend/Desktop/insertionDebug.txt");
-    for(int debugCount = 0; debugCount < RANDOM_ARRAY_SIZE; debugCount++) {
-        debug << "array[" << debugCount << "]: " <<  unsortedArray[debugCount] << endl;
-    }
-    cout << "Array has been sorted using an insertion sort" << endl;
+//    ofstream debug;
+//    debug.open("/users/nrtownsend/Desktop/insertionDebug.txt");
+//    for(int debugCount = 0; debugCount < RANDOM_ARRAY_SIZE; debugCount++) {
+//        debug << "array[" << debugCount << "]: " <<  unsortedArray[debugCount] << endl;
+//    }
+//    cout << "Array has been sorted using an insertion sort" << endl;
     //******************************
 }
 
@@ -167,9 +167,9 @@ void quickSort(int *unsortedArray, int left, int right) {
     }
 
     //*********DEBUG****************
-    else {
-        cout << "Array has been sorted using a quick sort" << endl;
-    }
+//    else {
+//        cout << "Array has been sorted using a quick sort" << endl;
+//    }
     //******************************
 
 }
@@ -242,7 +242,7 @@ bool validateSort(int *checkSort, int arraySize) {
     }
 
     //*********DEBUG****************
-    cout << "Sorting process validation code: " << sortValidated << endl;
+//    cout << "Sorting process validation code: " << sortValidated << endl;
     //******************************
 
     //returns boolean for sort validation
@@ -265,7 +265,7 @@ int* freeMemory(int *deleteArray) {
     delete deleteArray;
 
     //*********DEBUG****************
-    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
+//    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
     //******************************
 
     //reassigns pointer to NULL
@@ -314,7 +314,7 @@ int pickSort(int sortOption, int *sortArray) {
     time = endTime - startTime;
 
     //*********DEBUG****************
-    cout << "It took " << time << " clock cycles to sort the array." << endl;
+//    cout << "It took " << time << " clock cycles to sort the array." << endl;
     //******************************
 
     //returns the time taken to run the sorting algorithm

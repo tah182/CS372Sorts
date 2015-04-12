@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		826557981AD9FAFF00F49004 /* tatsumotoFuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826557961AD9FAFF00F49004 /* tatsumotoFuncs.cpp */; };
 		D623F09D1ACE346C00338CCB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D623F09C1ACE346C00338CCB /* main.cpp */; };
 		D6594B941AD0BBB70021AF56 /* townsendFuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6594B921AD0BBB70021AF56 /* townsendFuncs.cpp */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		826557961AD9FAFF00F49004 /* tatsumotoFuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tatsumotoFuncs.cpp; sourceTree = "<group>"; };
+		826557971AD9FAFF00F49004 /* tatsumotoFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tatsumotoFuncs.h; sourceTree = "<group>"; };
 		D623F0991ACE346C00338CCB /* Assn4_Sorts */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assn4_Sorts; sourceTree = BUILT_PRODUCTS_DIR; };
 		D623F09C1ACE346C00338CCB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D623F0A31ACE34BD00338CCB /* Function Ideas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Function Ideas.txt"; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 		D623F09B1ACE346C00338CCB /* Assn4_Sorts */ = {
 			isa = PBXGroup;
 			children = (
+				826557961AD9FAFF00F49004 /* tatsumotoFuncs.cpp */,
+				826557971AD9FAFF00F49004 /* tatsumotoFuncs.h */,
 				D623F09C1ACE346C00338CCB /* main.cpp */,
 				D6594B951AD0BBD30021AF56 /* Common.h */,
 				D6594B931AD0BBB70021AF56 /* townsendFuncs.h */,
@@ -128,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D623F09D1ACE346C00338CCB /* main.cpp in Sources */,
+				826557981AD9FAFF00F49004 /* tatsumotoFuncs.cpp in Sources */,
 				D6594B941AD0BBB70021AF56 /* townsendFuncs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
