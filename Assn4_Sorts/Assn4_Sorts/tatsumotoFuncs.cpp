@@ -252,10 +252,9 @@ void loopControl(int *optionArray) {
         
             // validate if correct
             validateSort(sortCopy, RANDOM_ARRAY_SIZE);
-
-            // free the memory from the
-            freeMemory(sortCopy);
         }
+        // free the memory for the copy
+        freeMemory(sortCopy);
     }
 
     double avgTime1 = getAvgTime(timeArray1, optionArray[2]);

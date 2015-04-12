@@ -228,12 +228,13 @@ bool validateSort(int *checkSort, int arraySize) {
 
     //checks each index against the one next to it to make sure the array is in order
     //continues checking as long as this is true
-    while(checkSort[validateIndex] < checkSort[validateIndex + 1] && validateIndex < arraySize - 1) {
+    while(checkSort[validateIndex] <= checkSort[validateIndex + 1] && validateIndex < arraySize - 1) {
         validateIndex++;
     }
 
     //if the check stopped early, then array is not sorted
     if(validateIndex != arraySize -1 ) {
+        cout << validateIndex << " " << arraySize - 1 << endl;
         sortValidated = false;
     }
 
