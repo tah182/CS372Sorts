@@ -119,6 +119,7 @@ void displayRunResult(int runNum, int option, double time) {
             break;
         default: ;
     }
+    cout << fixed << showpoint << setprecision(0);
     cout << "       " << sortType << " time..." << time << endl;
 }
 
@@ -304,6 +305,7 @@ string getSortName(int choice) {
 // IMPLEMENTED BY:  Tah Tatsumoto
 //**********************************************************************
 void displayResults(int optArray[], double sortAvg1, double sortAvg2) {
+    cout << fixed << showpoint << setprecision(0);
     cout << endl << endl << "Sorting ran " << optArray[2] << " times." << endl;
     cout << "For the " << getSortName(optArray[0]) << " the average time was " << sortAvg1 << endl;
     cout << "For the " << getSortName(optArray[1]) << " the average time was " << sortAvg2 << endl;
