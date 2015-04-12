@@ -17,11 +17,11 @@ int main(int argc, const char * argv[]) {
     //seeds random number generator with current time
     srandom(time(NULL));
 
+    //displays main menu to user and reads user choice of sorting algorithms and number of tests
+    displayMainMenu();
+    
     //continues program until user elects to exit
     while (optionArray[INPUT_SORT_CHOICE_1] != MENU_EXIT) {
-        
-        //displays main menu to user and reads user choice of sorting algorithms and number of tests
-        displayMainMenu();
         
         //gets user's choices regarding sorting algorithms and number of tests
         getInput(optionArray);

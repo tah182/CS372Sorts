@@ -44,7 +44,7 @@ void getInput(int opts[]) {
     int valid = 0;
     do {
         int input = getInputHelper(printout);
-        if (input < 10 || input > 54) {
+        if (input < 10 || input > 55) {
             cout << "Not a valid input. Please try again." << endl;
             valid = 0 ;
         } else {
