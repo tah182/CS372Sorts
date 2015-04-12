@@ -234,7 +234,6 @@ bool validateSort(int *checkSort, int arraySize) {
 
     //if the check stopped early, then array is not sorted
     if(validateIndex != arraySize -1 ) {
-        cout << validateIndex << " " << arraySize - 1 << endl;
         sortValidated = false;
     }
 
@@ -295,7 +294,7 @@ int pickSort(int sortOption, int *sortArray) {
             break;
         case 2 : insertionSort(sortArray, 0, RANDOM_ARRAY_SIZE);
             break;
-        case 3 : mergeSort(sortArray, 0, RANDOM_ARRAY_SIZE);
+        case 3 : mergeSort(sortArray, 0, RANDOM_ARRAY_SIZE - 1);
             break;
         case 4 : quickSort(sortArray, 0, RANDOM_ARRAY_SIZE);
             break;

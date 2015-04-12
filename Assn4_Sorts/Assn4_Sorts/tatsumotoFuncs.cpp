@@ -171,7 +171,7 @@ void mergeA(int unsortedArray[], int lowIndex, int midIndex, int highIndex) {
     right = midIndex + 1;
 
     while (left <= midIndex && right <= highIndex) {
-        if (unsortedArray[left] <= unsortedArray[right]) {
+        if (tempArray[left] <= tempArray[right]) {
             unsortedArray[temp] = tempArray[left];
             left++;
         } else {
@@ -247,9 +247,6 @@ void loopControl(int *optionArray) {
                 displayRunResult(optionArray[sortNum], timeArray2[i]);
             }
             
-            for (int i = 0; i < RANDOM_ARRAY_SIZE; i++)
-                cout << sortCopy[i] << endl;
-        
             // validate if correct
             validateSort(sortCopy, RANDOM_ARRAY_SIZE);
         }
