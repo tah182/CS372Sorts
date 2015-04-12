@@ -109,31 +109,35 @@ int getAvgTime(int *times, int numTests) {
 //**********************************************************************
 void insertionSort(int *unsortedArray, int left, int right) {
     int insertPoint,                        //where to insert current value into array
-        temp = 0;                           //used to temporarily hold values
-
+    temp;                                   //used to temporarily hold value to be moved into place
+    
+    //*********DEBUG****************
+    ofstream debug2;
+    debug2.open("/users/nrtownsend/Desktop/randomArray.txt");
+    for(int debugCount = 0; debugCount < RANDOM_ARRAY_SIZE; debugCount++) {
+        debug2 << "array[" << debugCount << "]: " <<  unsortedArray[debugCount] << endl;
+    }
+    //******************************
+    
     //sorting loop for array
-    for(int indexCounter = left; indexCounter < right; indexCounter++) {
+    for(int indexCounter = left + 1; indexCounter < right; indexCounter++) {
         //sets insertion point at current value
         insertPoint = indexCounter;
 
-        //finds insertion point
-        while (unsortedArray[indexCounter] <= unsortedArray[insertPoint] && insertPoint > 0) {
+        while (insertPoint > 0 && unsortedArray[insertPoint - 1] > unsortedArray[insertPoint]) {
+            temp = unsortedArray[insertPoint];
+            unsortedArray[insertPoint] = unsortedArray[insertPoint - 1];
+            unsortedArray[insertPoint - 1] = temp;
             insertPoint--;
         }
-
-        //saves value to be inserted
-        temp = unsortedArray[indexCounter];
-
-        //shifts all values between insertion point and current index
-        for(int shiftCounter = insertPoint; shiftCounter < indexCounter; shiftCounter++) {
-            unsortedArray[shiftCounter + 1] = unsortedArray[shiftCounter];
-        }
-
-        //inserts value in correct location
-        unsortedArray[insertPoint] = temp;
     }
 
     //*********DEBUG****************
+    ofstream debug;
+    debug.open("/users/nrtownsend/Desktop/insertionDebug.txt");
+    for(int debugCount = 0; debugCount < RANDOM_ARRAY_SIZE; debugCount++) {
+        debug << "array[" << debugCount << "]: " <<  unsortedArray[debugCount] << endl;
+    }
     cout << "Array has been sorted using an insertion sort" << endl;
     //******************************
 }
@@ -261,7 +265,7 @@ int* freeMemory(int *deleteArray) {
     delete deleteArray;
 
     //*********DEBUG****************
-//    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
+    cout << "deallocateMemory called, memory at address " << deleteArray << " deleted." << endl;
     //******************************
 
     //reassigns pointer to NULL
